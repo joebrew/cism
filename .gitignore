@@ -4,3 +4,4 @@
 *.Ruserdata
 /credentials
 /data
+.Rproj.user
