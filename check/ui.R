@@ -13,7 +13,8 @@ ui <-
              fluidRow(
                column(6,
                       textInput('password',
-                                label = 'Password')),
+                                label = 'Password'),
+                      submitButton("Submit")),
                column(6,
                       textOutput('password_evaluation'),
                       tags$head(tags$style("#password_evaluation{color: red;
@@ -28,6 +29,7 @@ ui <-
                              textInput('house_numbers',
                                        'House number',
                                        value = NULL),
+                             submitButton("Update", icon("refresh")),
                              textOutput('the_text1'),
                              textOutput('the_text2'),
                              tags$head(tags$style("#the_text2{color: red;

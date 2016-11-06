@@ -36,7 +36,7 @@ shinyServer(function(input, output) {
         ''
       } else
         if(password_ok() == 'ok'){
-          'Password correct. Procede to the data tab.'
+          'Password correct. Proceed to the data tab.'
         } else {
           'Password incorrect.'
         }
