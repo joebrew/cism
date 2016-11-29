@@ -71,20 +71,23 @@ leaflet_village_master_voronoi_buffer_spray_house_number <- function(house_numbe
   
   # Add all points
   if(is.null(house_numbers)){
-    sub_data <- census_spatial_ll
-  } else if (nchar(house_numbers) == 0){
     sub_data <- census_spatial_ll 
+    sub_data$color <- colors
+  } else if (nchar(house_numbers) == 0){
+    sub_data <- census_spatial_ll
+    sub_data$color <- colors
   } else{
-    sub_data <-
-      census_spatial_ll[which(grepl(house_numbers, census_spatial_ll$house_number,
+    sub_data <- census_spatial_ll 
+    sub_data$color <- colors
+    sub_data <- sub_data[which(grepl(house_numbers, sub_data$house_number,
                                     fixed = TRUE)),]
   }
     ll <-
       ll %>%
       addCircleMarkers(lng = sub_data$lng,
                        lat = sub_data$lat,
-                       color = colors,
-                       fillColor = colors,
+                       color = sub_data$color,
+                       fillColor = sub_data$color,
                        radius = 2.5,
                        opacity = 0,
                        fillOpacity = 0.5,

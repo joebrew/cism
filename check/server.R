@@ -69,11 +69,12 @@ shinyServer(function(input, output) {
       x %>%
       dplyr::select(village_number,
                     local_village_name,
-                    locality,
+                    locality_Final,
                     house_number,
                     lng,
                     lat,
-                    status)
+                    status) %>%
+      rename(locality = locality_Final)
     x
   })
   
