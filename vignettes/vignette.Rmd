@@ -58,29 +58,28 @@ In the above, consider replacing `dbname` with the database you most often use. 
 
 The `credentials/credentials.yaml` will be automatically detected by the `cism` package if in the same directory as the working directory, or if it is in a higher directory. Therefore, one should either create a `credentials/credentials.yaml` for each project, or place one `credentials/credentials.yaml` into a higher-level folder (for example "My Documents" for Windows users, or "/home/" for Linux users), under which all code resides.
 
-## Use
+## Basic use
 
 ### Retrieving data
 
-Below are some code chunks as examples.
+With the `cism` package, getting data is simple. Assuming you've got a `credentials/credentials.yaml` in or above your working directory, you can simply point the `get_data` function at the database and table of your choice:
 
-```{r hello, results='asis'}
-cat('_hello_ **markdown**!', '\n')
+```r
+residency <- get_data(tab = 'residency', dbname = 'openhds')
 ```
 
-Normally you do not need any chunk options.
+The above will return the entire "residency" table from the "openhds" database.
 
-```{r}
-1+1
-10:1
-rnorm(5)^2
-strsplit('hello, markdown vignettes', '')
+If you're a more advanced user and want to filter, select or join directly in SQL before collecting the results into memory, you can write directly in SQL:
+
+```r
+small_residency <- get_data(query = "SELECT uuid, startDate FROM residency limit 10", dbname = 'openhds')
 ```
 
 ### Visualizing data
 
-## Included data
-
-The `cism` package also includes some very basic datasets which are commonly used.
+Not finished
 
 ## Advanced use
+
+Not finished
