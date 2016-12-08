@@ -21,14 +21,18 @@ create_time_at_risk <- function(residency,
   # Packages
   require(dplyr)
   
-  x <- residency %>%
+  # Perform selections and join
+  # get variables from the episodes of residence
+  result <- residency %>%
     dplyr::select(individual_uuid, 
                   startType,
                   startDate,
                   endType, 
                   endDate, 
                   location_uuid) %>%
+    # order by individual and date
     arrange(individual_uuid, startDate) %>%
+    # join with individual details
     left_join(individual %>%
                 dplyr::select(uuid,
                               dob,
@@ -39,8 +43,10 @@ create_time_at_risk <- function(residency,
                               father_uuid,
                               mother_uuid,
                               gender) %>%
+                # rename extId so as to not conflict with location extId
                 rename(individual_extId = extId),
               by = c('individual_uuid' = 'uuid')) %>%
+    # join with location-level details
     left_join(location %>%
                 dplyr::select(uuid,
                               accuracy,
@@ -50,6 +56,10 @@ create_time_at_risk <- function(residency,
                               latitude,
                               locationName,
                               locationLevel_uuid) %>%
+                # rename extId so as to not conflict with individual extId
                 rename(location_extId = extId),
               by = c('location_uuid' = 'uuid'))
+  
+  # Return result
+  return(result)
 }

@@ -4,19 +4,14 @@
 \alias{create_time_at_risk}
 \title{Create time at risk}
 \usage{
-create_time_at_risk(user, password, port = 3306, host = "sap.manhica.net")
+create_time_at_risk(residency, individual, location)
 }
 \arguments{
-\item{user}{A username, as a character vector of length one, with access
-to the openhds database}
+\item{residency}{A residency table of identical format to the \code{residency} table in the \code{openhds} database}
 
-\item{password}{The password corresponding to \code{username}}
+\item{individual}{A individual table of identical format to the \code{individual} table in the \code{openhds} database}
 
-\item{port}{The port to use. for the database connection. 
-By default 3306; should be 4706 if not at the CISM.}
-
-\item{host}{The host to use for the database connection. 
-By default "sap.manhica.net".}
+\item{location}{A location table of identical format to the \code{location} table in the \code{openhds} database}
 }
 \value{
 A \code{data.frame} with one row for each person's 
@@ -25,5 +20,11 @@ uninterrupted period of residency
 \description{
 Using census migration data, create a dataframe of "time at risk", ie the 
 time during which someone lived in Manhiça.
+}
+\examples{
+residency <- get_data(tab = 'residency', dbname = 'openhds')
+individual <- get_data(tab = 'individual', dbname = 'openhds')
+location <- get_data(tab = 'location', dbname = 'openhds')
+time_at_risk <- create_time_at_risk(residency = residency, individual = individual, location = location)
 }
 
