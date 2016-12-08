@@ -34,14 +34,6 @@ Once you've installed the package, you can use its functionality in any R script
 library(cism)
 ```
 
-If you're new to R and don't yet have many packages installed, you can save some time by running the following once after installation.
-
-```r
-install_cism_packages()
-```
-
-This will install locally all the CISM dependencies.
-
 ### Credentials
 
 Accessing CISM databases requires permissions. All the functionality in the `cism` package can be used by calling functions with a user's credentials. However, both for the sake of ease as well as to avoid putting any confidential information into R code, it is highly recommended to create a `credentials` folder with a `credentials.yaml` file. The contents of this file should look something like this:
