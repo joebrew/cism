@@ -25,7 +25,6 @@ To use the `cism` package, you'll first need to install it. With a good internet
 
 ```r
 if(!require(devtools)) install.packages("devtools")
-if(!require(roxygen2)) install.packages("roxygen2")
 install_github('joebrew/cism')
 ```
 
