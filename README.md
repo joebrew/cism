@@ -13,3 +13,9 @@ install_github('joebrew/cism')
 ## Use
 
 Read full details on use in [the vignette](vignettes/vignette.Rmd)
+
+## Authors
+
+Eventually, a list of authors will go here.
+
+
