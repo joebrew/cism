@@ -1,0 +1,87 @@
+<!--
+%\VignetteEngine{knitr::docco_linear}
+%\VignetteIndexEntry{R Markdown with the Docco Linear Style}
+-->
+
+# The R CISM package
+
+The R CISM package is a collaborative effort to improve the way that CISM researchers interact with data. 
+
+## Objectives
+
+The objectives of the R CISM package are simple:
+
+1. Make retrieving data more simple.
+
+2. Make data analysis more reproducible.
+
+3. Make interaction with data more pleasurable and beautiful.
+
+## Set up
+
+### Installation
+
+To use the `cism` package, you'll first need to install it. With a good internet connection, run the following from within R.
+
+```r
+if(!require(devtools)) install.packages("devtools")
+if(!require(roxygen2)) install.packages("roxygen2")
+install_github('joebrew/cism')
+```
+
+Once you've installed the package, you can use its functionality in any R script by simply including the following line:
+
+```r
+library(cism)
+```
+
+If you're new to R and don't yet have many packages installed, you can save some time by running the following once after installation.
+
+```r
+install_cism_packages()
+```
+
+This will install locally all the CISM dependencies.
+
+### Credentials
+
+Accessing CISM databases requires permissions. All the functionality in the `cism` package can be used by calling functions with a user's credentials. However, both for the sake of ease as well as to avoid putting any confidential information into R code, it is highly recommended to create a `credentials` folder with a `credentials.yaml` file. The contents of this file should look something like this:
+
+```
+dbname: openhds
+host: sap.manhica.net
+port: 3306 # Use 4706 from outside of the CISM
+user: your_user_name
+password: your_pass_word
+```
+
+In the above, consider replacing `dbname` with the database you most often use. Replace `port` with 4706 if you work outside of the CISM. And replace the `user` and `password` fields with your name and password. If you use git, or any other form of version control, ensure that the `credentials.yaml` file is ignored by any repository viewable by others.
+
+The `credentials/credentials.yaml` will be automatically detected by the `cism` package if in the same directory as the working directory, or if it is in a higher directory. Therefore, one should either create a `credentials/credentials.yaml` for each project, or place one `credentials/credentials.yaml` into a higher-level folder (for example "My Documents" for Windows users, or "/home/" for Linux users), under which all code resides.
+
+## Use
+
+### Retrieving data
+
+Below are some code chunks as examples.
+
+```{r hello, results='asis'}
+cat('_hello_ **markdown**!', '\n')
+```
+
+Normally you do not need any chunk options.
+
+```{r}
+1+1
+10:1
+rnorm(5)^2
+strsplit('hello, markdown vignettes', '')
+```
+
+### Visualizing data
+
+## Included data
+
+The `cism` package also includes some very basic datasets which are commonly used.
+
+## Advanced use

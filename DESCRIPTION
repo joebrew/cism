@@ -1,11 +1,16 @@
 Package: cism
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Type: Package
+Title: The CISM R package
+Version: 0.1.0
+Date: 2016-12-08
+Authors@R: c(person("Joe", "Brew", role = c("aut", "cre", "ths"),
+    email = "joebrew@gmail.com"))
 Depends:
-    R (>= 3.3.1)
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
+    R(>= 3.0.2)
+Suggests:
+    knitr,
+    BiocStyle
+Description: Tools for retrieving, reshaping and visualizing data for CISM
+    researchers
+License: Artistic-2.0
 RoxygenNote: 5.0.1.9000
