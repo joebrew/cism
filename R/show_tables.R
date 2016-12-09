@@ -81,4 +81,5 @@ show_tables <- function(dbname = NULL,
   results <- data.frame(dbname = dbname,
                         table = tables)
   
-  return(results)}
+  return(results)
+}
