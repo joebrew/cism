@@ -10,9 +10,7 @@ vignette: >
 ---
 
 
-# The R CISM package
-
-The R CISM package is a collaborative effort to improve the way that CISM researchers interact with data. 
+`cism`, the R package of the Centro de Investigação em Saude de Manhiça, is a collaborative effort to improve the way that CISM researchers interact with and utilize data. 
 
 ## Objectives
 
@@ -79,7 +77,16 @@ small_residency <- get_data(query = "SELECT uuid, startDate FROM residency limit
 
 ### Visualizing data
 
-Not finished
+The `cism` package offers several tools for the visualization of data. 
+
+#### `cism_plot`
+
+`cism_plot` is a simple wrapper for plotting a variable of any type, or 2 numeric variables. Its use is relatively straightforward.
+
+```{r}
+
+
+```
 
 ### Built-in datasets
 

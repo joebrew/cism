@@ -16,3 +16,5 @@ Description: Tools for retrieving, reshaping and visualizing data for CISM
 License: Artistic-2.0
 RoxygenNote: 5.0.1.9000
 VignetteBuilder: knitr
+LazyData: true
+  

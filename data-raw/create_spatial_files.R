@@ -1,5 +1,10 @@
+library(devtools)
 library(raster)
 library(ggplot2)
+library(maptools)
+
+devtools::use_data_raw()
+
 
 # Get mozambique shapefile
 moz0 <- getData('GADM', country = 'MOZ', level = 0)
@@ -36,10 +41,5 @@ mop3_fortified <- fortify(mop3, region = 'NAME_3')
 
 objects <- ls()
 for (i in 1:length(objects)){
-  x <- get(objects[i])
-  save(x,
-       file = paste0('data/',
-                     objects[i],
-                     '.rds'))
-  message(i)
+  eval(parse(text = paste0("devtools::use_data(", objects[i], ", overwrite = TRUE)")))
 }
