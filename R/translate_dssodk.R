@@ -40,13 +40,21 @@ translate_dssodk <- function(dictionary,
     filter(table == table_name,
            variable == the_variable) 
   
+  # Make sure types match
+  class_dictionary <- class(sub_dictionary$old)
+  class_tab <- class(tab$old)
+  if(class_tab != class_dictionary){
+    sub_dictionary$old <- as.character(sub_dictionary$old)
+    tab$old <- as.character(tab$old)
+  }
+  
   # Perform the translation
   tab <- tab %>%
     left_join(sub_dictionary,
               by = 'old') %>%
     dplyr::select(answer_port) 
   
-  names(tab) <- sub_dictionary$variable[1]
+  names(tab) <- sub_dictionary$question_port[1]
   
   return(tab)
 }
