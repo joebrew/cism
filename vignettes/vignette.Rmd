@@ -26,7 +26,9 @@ The objectives of the R CISM package are simple:
 
 ## Set up
 
-### Installation
+Before using the `cism` package, you'll need to (1) install and (2) configure credentials.
+
+### 1. Install
 
 To use the `cism` package, you'll first need to install it. With a good internet connection, run the following from within R.
 
@@ -41,7 +43,7 @@ Once you've installed the package, you can use its functionality in any R script
 library(cism)
 ```
 
-### Credentials
+### 2. Configure credentials
 
 Accessing CISM databases requires permissions. All the functionality in the `cism` package can be used by calling functions with a user's credentials. However, both for the sake of ease as well as to avoid putting any confidential information into R code, it is highly recommended to create a `credentials` folder with a `credentials.yaml` file. The contents of this file should look something like this:
 

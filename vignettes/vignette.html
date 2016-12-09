@@ -88,16 +88,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="set-up" class="section level2">
 <h2>Set up</h2>
-<div id="installation" class="section level3">
-<h3>Installation</h3>
+<p>Before using the <code>cism</code> package, you’ll need to (1) install and (2) configure credentials.</p>
+<div id="install" class="section level3">
+<h3>1. Install</h3>
 <p>To use the <code>cism</code> package, you’ll first need to install it. With a good internet connection, run the following from within R.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(!<span class="kw">require</span>(devtools)) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
 <span class="kw">install_github</span>(<span class="st">'joebrew/cism'</span>)</code></pre></div>
 <p>Once you’ve installed the package, you can use its functionality in any R script by simply including the following line:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cism)</code></pre></div>
 </div>
-<div id="credentials" class="section level3">
-<h3>Credentials</h3>
+<div id="configure-credentials" class="section level3">
+<h3>2. Configure credentials</h3>
 <p>Accessing CISM databases requires permissions. All the functionality in the <code>cism</code> package can be used by calling functions with a user’s credentials. However, both for the sake of ease as well as to avoid putting any confidential information into R code, it is highly recommended to create a <code>credentials</code> folder with a <code>credentials.yaml</code> file. The contents of this file should look something like this:</p>
 <pre><code>dbname: openhds
 host: sap.manhica.net
@@ -110,8 +111,8 @@ password: your_pass_word</code></pre>
 </div>
 <div id="basic-use" class="section level2">
 <h2>Basic use</h2>
-<div id="retrieving-data" class="section level3">
-<h3>Retrieving data</h3>
+<div id="retrieving-data-from-cism-databases" class="section level3">
+<h3>Retrieving data from CISM databases</h3>
 <p>With the <code>cism</code> package, getting data is simple. Assuming you’ve got a <code>credentials/credentials.yaml</code> in or above your working directory, you can simply point the <code>get_data</code> function at the database and table of your choice:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">residency &lt;-<span class="st"> </span><span class="kw">get_data</span>(<span class="dt">tab =</span> <span class="st">'residency'</span>, <span class="dt">dbname =</span> <span class="st">'openhds'</span>)</code></pre></div>
 <p>The above will return the entire “residency” table from the “openhds” database.</p>
@@ -121,6 +122,11 @@ password: your_pass_word</code></pre>
 <div id="visualizing-data" class="section level3">
 <h3>Visualizing data</h3>
 <p>Not finished</p>
+</div>
+<div id="built-in-datasets" class="section level3">
+<h3>Built-in datasets</h3>
+<p>The <code>cism</code> package also includes several built-in datasets.</p>
+<p>Not finished.</p>
 </div>
 </div>
 <div id="advanced-use" class="section level2">
