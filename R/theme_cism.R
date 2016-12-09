@@ -45,7 +45,7 @@ theme_cism <-
                                        color = color_axis_title)) + 
       theme(plot.title = element_text(family = base_family, 
                                       color = color_title, 
-                                      size = base_size * 1.6, vjust = 1.25)) + 
+                                      size = base_size * 1.2, vjust = 1.25)) + 
       theme(plot.subtitle = element_text(family = subtitle_family,
                                          color = color_subtitle,
                                          size = base_size * 0.8, vjust = 1.25)) +

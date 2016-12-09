@@ -3,7 +3,7 @@
 #' Add a CISM watermark to any plot
 #' @export
 
-brand_cism <- function(subtitle = FALSE){
+brand_cism <- function(subtitle = TRUE){
   if(subtitle){
     labs(subtitle = "www.manhica.org",
          size = 2)

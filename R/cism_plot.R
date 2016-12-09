@@ -91,9 +91,9 @@ cism_plot <- function(x,
       group_by(x) %>%
       tally %>%
       ungroup %>%
-      filter(!is.na(x)) %>%
-      arrange(n) %>%
-      mutate(x = factor(x, levels = x))
+      filter(!is.na(x)) #%>%
+      # arrange(n) %>%
+      # mutate(x = factor(x, levels = x))
     g <- 
       ggplot(data = plot_data,
              aes(x = x,

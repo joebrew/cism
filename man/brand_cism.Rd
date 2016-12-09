@@ -4,7 +4,7 @@
 \alias{brand_cism}
 \title{Brand CISM}
 \usage{
-brand_cism(subtitle = FALSE)
+brand_cism(subtitle = TRUE)
 }
 \description{
 Add a CISM watermark to any plot
