@@ -47,7 +47,9 @@ cism_plot <- function(x,
     if(type == 'character'){
       type <- 'factor'
     } else if(type == 'Date'){
-      type = 'numeric'
+      type <- 'numeric'
+    } else if(type == 'integer'){
+      type <- 'numeric'
     }
   }
   
