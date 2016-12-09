@@ -1,0 +1,27 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# cism: The R package of the Centro de Investigação em Saude de Manhiça
+
+## Installation
+
+
+```r
+if(!require(devtools)) install.packages("devtools")
+install_github('joebrew/cism')
+```
+
+## Details
+
+Read the [vignette](vignettes/vignette.Rmd) for full details
