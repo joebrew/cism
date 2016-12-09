@@ -1,14 +1,7 @@
----
-title: "cism: The CISM R package"
-author: "Joe Brew"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-
+<!--
+%\VignetteEngine{knitr::docco_linear}
+%\VignetteIndexEntry{R Markdown with the Docco Linear Style}
+-->
 
 # The R CISM package
 
@@ -59,7 +52,7 @@ The `credentials/credentials.yaml` will be automatically detected by the `cism` 
 
 ## Basic use
 
-### Retrieving data from CISM databases
+### Retrieving data
 
 With the `cism` package, getting data is simple. Assuming you've got a `credentials/credentials.yaml` in or above your working directory, you can simply point the `get_data` function at the database and table of your choice:
 
@@ -78,12 +71,6 @@ small_residency <- get_data(query = "SELECT uuid, startDate FROM residency limit
 ### Visualizing data
 
 Not finished
-
-### Built-in datasets
-
-The `cism` package also includes several built-in datasets. 
-
-Not finished.
 
 ## Advanced use
 
