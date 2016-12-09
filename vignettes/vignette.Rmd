@@ -11,7 +11,7 @@ vignette: >
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      fig.width = 6,
+                      fig.width = 4,
                       fig.height = 4)
 ```
 
@@ -101,10 +101,10 @@ people <- data.frame(id = 1:1000,
                                   size = 1000,
                                   replace = TRUE),
                      latitude = rnorm(mean = coordinates(man3)[,2],
-                                      sd = 0.1,
+                                      sd = 0.05,
                                       n = 1000),
                      longitude = rnorm(mean = coordinates(man3)[,1],
-                                       sd = 0.1,
+                                       sd = 0.05,
                                        n = 1000),
                      age = sample(seq(22, 
                                       26,
@@ -194,14 +194,14 @@ cism_map(lng = people$longitude,
 
 To use, you'll need a dataset with at least longitude and latitude. Here we'll again use our `people` dataset:
 
-```{r}
+```{r, message=FALSE}
 cism_map_interactive(lng = people$longitude, 
                      lat = people$latitude)
 ```
 
 We can add a SpatialPolygonsDataFrame, including those included in the cism package, with the `spdf` arugment.
 
-```{r}
+```{r, message=FALSE}
 cism_map_interactive(lng = people$longitude, 
                      lat = people$latitude, 
                      spdf = man3)
@@ -209,7 +209,7 @@ cism_map_interactive(lng = people$longitude,
 
 Our points can be simple representations of location (above), or we can color them by a categorical variable.
 
-```{r}
+```{r, message=FALSE}
 cism_map_interactive(lng = people$longitude,
                      lat = people$latitude,
                      spdf = man2,
@@ -218,18 +218,102 @@ cism_map_interactive(lng = people$longitude,
 
 Rather than a categorical variable (above), we can also color points by a continous variable.
 
-```{r}
+```{r, message=FALSE}
 cism_map_interactive(lng = people$longitude,
                      lat = people$latitude,
                      spdf = man2,
                      x = people$age)
 ```
 
+Finally, the `popup` argument can be used to indicate what text should be shown when an icon is clicked.
+
+```{r, message = FALSE}
+cism_map_interactive(lng = people$longitude,
+                     lat = people$latitude,
+                     spdf = man2,
+                     x = people$age,
+                     popup = people$sex)
+```
+
 ### Built-in datasets
 
-The `cism` package also includes several built-in datasets. 
+The `cism` package also includes several built-in spatial data objects. These are as follows.
 
-Not finished.
+```{r, echo = FALSE}
+cat(paste0(gsub('.rda', '', dir('../data')), collapse = '\n'))
+```
+
+The names "moz", "man", and "mag" signify "Mozambique", "Manhiça", and "Magude" (respectively). The number therafter signifies the administrative level (0 = country, 1 = province, 2 = district, 3 = sub-district). The suffix "_fortified" means that the object is in a "fortified" (ie, ggplot2-compatible) dataframe format; objects without this suffix are SpatialPolygonsDataFrames.
+
+Built-in datasets in the `cism` package are "lazily" loaded, mean that you can call them at any point after attaching the `cism` package by simply using their name. For example:
+
+```{r}
+library(cism)
+plot(moz2)
+```
+
+The above plots the SpatialPolygonsDataFrame of Mozambique at the 2nd administrative level (ie, district).
+
+By the same token, I could also run the following to get a map of the Magude district at the third administrative level using the ggplot framework for plotting:
+
+```{r}
+library(ggplot2)
+library(cism)
+
+ggplot() +
+  geom_polygon(data = mag3_fortified,
+               aes(x = long,
+                   y = lat,
+                   fill = id)) +
+  coord_map()
+```
+
+### Aesthetic tweaks
+
+#### Theme
+
+The `cism` plot comes with the `theme_cism` function, which can be appended to any ggplot2-style plot to make it more aesthetically compatible with the CISM's color scheme. For example, rather than
+
+```{r}
+ggplot(data = people,
+       aes(x = sex)) +
+  geom_bar()
+```
+
+We can instead run
+
+```{r}
+ggplot(data = people,
+       aes(x = sex)) +
+  geom_bar(fill = 'darkorange', color = 'darkgreen') +
+  theme_cism()
+```
+
+#### Branding
+
+We can also "brand" a plot, by running `brand_cism()`, which will add the website to the subtitle of the plot:
+
+```{r}
+ggplot(data = people,
+       aes(x = sex)) +
+  geom_bar() +
+  geom_bar(fill = 'darkorange', color = 'darkgreen') +
+  theme_cism() +
+  brand_cism()
+```
+
+Both `theme_cism` and `brand_cism` work on maps as well:
+
+```{r}
+ggplot() +
+  geom_polygon(data = mag3_fortified,
+               aes(x = long,
+                   y = lat,
+                   fill = id)) +
+  coord_map() +
+  theme_cism() +
+  brand_cism()
+```
 
 ## Advanced use
 
