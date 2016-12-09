@@ -1,4 +1,8 @@
 library(devtools)
 library(roxygen2)
+library(rmarkdown)
 document('.')
 install('.')
+render('README.Rmd')
+setwd('vignettes')
+render('vignette.Rmd')

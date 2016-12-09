@@ -187,6 +187,44 @@ cism_map(lng = people$longitude,
   ggtitle('Spatial distribution by sex')
 ```
 
+
+#### cism_map_interactive
+
+`cism_map_interactive` is very similar to `cism_map`. Rather than build static maps, it builds interactive satellite-based maps.
+
+To use, you'll need a dataset with at least longitude and latitude. Here we'll again use our `people` dataset:
+
+```{r}
+cism_map_interactive(lng = people$longitude, 
+                     lat = people$latitude)
+```
+
+We can add a SpatialPolygonsDataFrame, including those included in the cism package, with the `spdf` arugment.
+
+```{r}
+cism_map_interactive(lng = people$longitude, 
+                     lat = people$latitude, 
+                     spdf = man3)
+```
+
+Our points can be simple representations of location (above), or we can color them by a categorical variable.
+
+```{r}
+cism_map_interactive(lng = people$longitude,
+                     lat = people$latitude,
+                     spdf = man2,
+                     x = people$sex)
+```
+
+Rather than a categorical variable (above), we can also color points by a continous variable.
+
+```{r}
+cism_map_interactive(lng = people$longitude,
+                     lat = people$latitude,
+                     spdf = man2,
+                     x = people$age)
+```
+
 ### Built-in datasets
 
 The `cism` package also includes several built-in datasets. 

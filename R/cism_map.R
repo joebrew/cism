@@ -32,7 +32,6 @@ cism_map <- function(lng,
   # Packages
   require(ggplot2)
   require(dplyr)
-  require(leaflet)
   require(RColorBrewer)
   
   # Convert everything to data.frame to avoid problems with tbl_df

@@ -2,6 +2,7 @@
 
 export(brand_cism)
 export(cism_map)
+export(cism_map_interactive)
 export(cism_plot)
 export(create_time_at_risk)
 export(credentials_connect)
