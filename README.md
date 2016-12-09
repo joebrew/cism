@@ -1,21 +1,17 @@
-# cism: The CISM R package
 
-## Installation
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+cism: The R package of the Centro de Investigação em Saude de Manhiça
+=====================================================================
 
-To install `cism`, run the following:
+Installation
+------------
 
-```r
+``` r
 if(!require(devtools)) install.packages("devtools")
 install_github('joebrew/cism')
 ```
 
+Details
+-------
 
-## Use
-
-Read full details on use in [the vignette](vignettes/vignette.Rmd)
-
-## Authors
-
-Eventually, a list of authors will go here.
-
-
+Read the [vignette](vignettes/vignette.Rmd) for full details
