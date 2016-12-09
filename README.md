@@ -14,4 +14,4 @@ install_github('joebrew/cism')
 Details
 -------
 
-Read the [vignette](http://htmlpreview.github.io/?https://github.com/joebrew/cism/blob/master/vignettes/vignette.html) for full details.
+Read the [vignette](http://economicsofmalaria.com/vignette.html) for full details.
