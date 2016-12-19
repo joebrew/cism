@@ -60,6 +60,11 @@ create_time_at_risk <- function(residency,
                 rename(location_extId = extId),
               by = c('location_uuid' = 'uuid'))
   
+  # Make date objects
+  result$startDate <- as.Date(result$startDate)
+  result$endDate <- as.Date(result$endDate)
+  result$dob <- as.Date(result$dob)
+  
   # Return result
   return(result)
 }
