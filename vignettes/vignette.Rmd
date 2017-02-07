@@ -9,10 +9,14 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       fig.width = 4,
                       fig.height = 4)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(cism)
 ```
 
 `cism`, the R package of the Centro de Investigação em Saude de Manhiça, is a collaborative effort to improve the way that CISM researchers interact with and utilize data. 
@@ -317,4 +321,46 @@ ggplot() +
 
 ## Advanced use
 
-Not finished
+### Fuzzy string-matching
+
+It is often the case that datasets must be merged by name. This is problematic when one name is written slightly differently in one dataset than in another (for example, "Esmeralda" and "Esmerelda"). The function `fuzzy_match` employs the Jaro-Winkler distance algorithm to generate a "distance matrix" which shows how similar one name is to another (0 being identical, 1 being totally different).
+
+The below shows an example of its use.
+
+```{r, echo = TRUE}
+# Define a list of names
+x <- c('joe', 'joseph', 'coloma', 'ramona', 'paloma', 'ramon', 'elena', 'beatriz')
+# Define another list of names (with which we're going to match)
+y <- c('helena', 'bea', 'jeo', 'joe', 'colombia', 'romania')
+# Perform the matching
+results <- fuzzy_match(x = x, y = y)
+# View results
+results
+```
+
+Note that the algorithm performs well. The name "bea" has very few matches, but is most closely matched to "beatriz". The name "joe" has an exact match (ie, a score of 0), but also gets an approximate match (ie, low score) for the name "joseph". "elena" is closely matched with "helena", and equally far (ie, high score) from names like "joe" and "bea".
+
+We can visualize the results as well:
+
+```{r}
+# Reshape for plotting
+plot_data <- data.frame(results) %>%
+  mutate(x = row.names(results)) %>%
+  gather(y, score, helena:romania)
+# Visualize results
+ggplot(data = plot_data,
+       aes(x = x,
+           y = y,
+           fill = score)) +
+  geom_tile() +
+  scale_fill_gradient2(name = 'Distance',
+                       low = 'darkgreen',
+                       mid = 'white',
+                       high = 'darkorange',
+                       midpoint = 0.5) +
+  theme_cism() +
+  labs(title = 'Fuzzy matching results',
+       subtitle = 'Using the CISM fuzzy_match function') +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
