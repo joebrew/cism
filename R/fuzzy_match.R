@@ -5,6 +5,7 @@
 #' @param x A character string
 #' @param y A character string with which to match
 #' if \code{NULL}, x will be used
+#' @return A named matrix of similarity scores
 #' @export
 
 fuzzy_match <- function(x,

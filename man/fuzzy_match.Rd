@@ -12,6 +12,9 @@ fuzzy_match(x, y = NULL)
 \item{y}{A character string with which to match
 if \code{NULL}, x will be used}
 }
+\value{
+A named matrix of similarity scores
+}
 \description{
 Use approximate string matching to assign "similarity" scores to
 potentially mis-entered data

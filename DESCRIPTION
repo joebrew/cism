@@ -17,4 +17,5 @@ License: Artistic-2.0
 RoxygenNote: 5.0.1.9000
 VignetteBuilder: knitr
 LazyData: true
+URL: https://github.com/joebrew/cism
   
