@@ -14,7 +14,7 @@
 
 theme_cism <-
   function (base_size = 14,
-            base_family = "Frutiger",
+            base_family = "Helvetica",
             subtitle_family = 'Helvetica',
             axis_family = 'Helvetica'){
 
@@ -24,8 +24,8 @@ theme_cism <-
     color_axis_text =  "#044b00"
     color_axis_title = "#044b00"
     color = 'darkgrey'
-    color_title = "darkorange"
-    color_subtitle = '#044b00'
+    color_title = "#044b00"
+    color_subtitle = 'darkgrey'
     base_size1 = base_size
     theme_bw(base_size = base_size1) +
       theme(panel.background = element_rect(fill = color_background,
@@ -45,7 +45,7 @@ theme_cism <-
                                        color = color_axis_title)) +
       theme(plot.title = element_text(family = base_family,
                                       color = color_title,
-                                      size = base_size * 1.2, vjust = 1.25)) +
+                                      size = base_size * 1, vjust = 1.25)) +
       theme(plot.subtitle = element_text(family = subtitle_family,
                                          color = color_subtitle,
                                          size = base_size * 0.8, vjust = 1.25)) +

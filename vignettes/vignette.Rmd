@@ -241,11 +241,13 @@ cism_map_interactive(lng = people$longitude,
 
 ### Built-in datasets
 
-The `cism` package also includes several built-in spatial data objects. These are as follows.
+The `cism` package also includes several built-in datasets. These are as follows.
 
 ```{r, echo = FALSE}
 cat(paste0(gsub('.rda', '', dir('../data')), collapse = '\n'))
 ```
+
+#### Spatial data
 
 The names "moz", "man", and "mag" signify "Mozambique", "Manhiça", and "Magude" (respectively). The number therafter signifies the administrative level (0 = country, 1 = province, 2 = district, 3 = sub-district). The suffix "_fortified" means that the object is in a "fortified" (ie, ggplot2-compatible) dataframe format; objects without this suffix are SpatialPolygonsDataFrames.
 
@@ -271,6 +273,44 @@ ggplot() +
                    fill = id)) +
   coord_map()
 ```
+
+#### Dataframes
+
+The `cism` package also includes non-spatial data. The World Bank's "World Development Indicators" time series data is included for Mozambique in a (plot-friendly) long format. Here's an example of how to use.
+
+```{r}
+# Attach cism package
+library(cism)
+
+# Bring wb (world bank) data into memory
+wb <- wb
+
+# Look at it
+head(wb)
+
+# Subset for only the homicide rate over time
+homicides <- 
+  wb %>%
+  filter(indicator_name == 'Intentional homicides (per 100,000 people)') %>%
+  filter(!is.na(value))
+
+# Visualize
+cism_plot(x = homicides$year,
+          y = homicides$value,
+          trend = TRUE) +
+  labs(x = 'Year',
+       y = 'Rate per 100,000',
+       title = 'Homicide rate in Mozambique',
+       subtitle = 'According to the World Bank')
+```
+
+There are `r length(unique(wb$indicator_code))` development indicators in the dataset. These can be explored below.
+
+```{r}
+DT::datatable(data_frame(`Indicator name` = sort(unique(wb$indicator_name))))
+```
+
+
 
 ### Aesthetic tweaks
 

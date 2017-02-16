@@ -4,7 +4,7 @@
 \alias{theme_cism}
 \title{CISM theme}
 \usage{
-theme_cism(base_size = 14, base_family = "Frutiger",
+theme_cism(base_size = 14, base_family = "Helvetica",
   subtitle_family = "Helvetica", axis_family = "Helvetica")
 }
 \arguments{
