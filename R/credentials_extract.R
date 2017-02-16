@@ -89,6 +89,7 @@ credentials_extract <- function(credentials_path = NULL,
       credentials_path <- gsub('//', '/', credentials_path)
     }
     
+    message(paste0('Using credentials at ', credentials_path))
     # If no yaml was identified after the search limit was maxed, return error
     good_to_go <- file.exists(credentials_path) & !dir.exists(credentials_path)
     if(!good_to_go){
