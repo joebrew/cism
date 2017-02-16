@@ -7,7 +7,7 @@
 get_dictionary(questions = TRUE, manhica = TRUE, round = 1)
 }
 \arguments{
-\item{questions}{If \code{TRUE}, will return a dictionary of 
+\item{questions}{If \code{TRUE}, will return a dictionary of
 census questions;
 the alternative (\code{FALSE}) is to return the dictionary of the answers}
 
@@ -19,7 +19,7 @@ the alternative (\code{FALSE}) is to return the dictionary for Magude}
 \description{
 Get a dictionary for the following databases:
 1. Manhica (dssodk) with the following tables
-HOUSEHOLD_ECONOMICS_CORE, 
+HOUSEHOLD_ECONOMICS_CORE,
 LOCATION_DETAILS_CORE,
 INDIVIDUAL_DETAILS_CORE
 2. Magude (round 1) with the following tables

@@ -8,7 +8,7 @@ get_weather(station = "FQMA", start_year = 2014, end_year = 2016,
   save = TRUE, load_saved = TRUE)
 }
 \arguments{
-\item{station}{A weather station. For example, "FQMA" (Maputo), "CDG" 
+\item{station}{A weather station. For example, "FQMA" (Maputo), "CDG"
 (Charles de Gaulle airport in Paris, France), "JFK" (John F. Kennedy
 airport in New York City, USA), etc.}
 

@@ -14,11 +14,11 @@ create_time_at_risk(residency, individual, location)
 \item{location}{A location table of identical format to the \code{location} table in the \code{openhds} database}
 }
 \value{
-A \code{data.frame} with one row for each person's 
+A \code{data.frame} with one row for each person's
 uninterrupted period of residency
 }
 \description{
-Using census migration data, create a dataframe of "time at risk", ie the 
+Using census migration data, create a dataframe of "time at risk", ie the
 time during which someone lived in Manhiça.
 }
 \examples{

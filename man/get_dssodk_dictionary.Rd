@@ -8,7 +8,7 @@ get_dssodk_dictionary()
 }
 \description{
 Get a dictionary for the following dssodk tables:
-HOUSEHOLD_ECONOMICS_CORE, 
+HOUSEHOLD_ECONOMICS_CORE,
 LOCATION_DETAILS_CORE,
 INDIVIDUAL_DETAILS_CORE
 }

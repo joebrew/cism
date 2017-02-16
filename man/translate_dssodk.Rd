@@ -16,13 +16,13 @@ Can be left \code{NULL} if \code{table_name} is identical to the name of the obj
 \item{table_name}{The name (as a character vector of length one) of the table
 to be translated}
 
-\item{variable}{The name (as a character vector of length one) of the 
+\item{variable}{The name (as a character vector of length one) of the
 variable to be translated}
 }
 \value{
-A one column dataframe in which the variable name will be the 
+A one column dataframe in which the variable name will be the
 Portugese language question pertaining to the \code{variable}, and
-the values of the dataframe will be the Portuguese-language values in the 
+the values of the dataframe will be the Portuguese-language values in the
 dictionary
 }
 \description{

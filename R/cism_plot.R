@@ -1,5 +1,5 @@
 #' cism plot
-#' 
+#'
 #' Generate simple visualizations of variables. Meant to show one of 3 different kinds of charts:
 #' 1. A bar chart (for counts of categorical variables)
 #' 2. A histogram (for distributions of numeric variables)
@@ -16,6 +16,8 @@
 #' @param trend Whether to overlay a trend line.
 #' Ignored unless \code{y} is not \code{NULL} and both \code{x} and \code{y} are numeric.
 #' @return A plot
+#' @import ggplot2
+#' @import dplyr
 #' @export
 
 cism_plot <- function(x,
@@ -24,17 +26,13 @@ cism_plot <- function(x,
                       make_simple = TRUE,
                       n_simple = 10,
                       trend = FALSE){
-  
-  # Packages
-  require(ggplot2)
-  require(dplyr)
-  
+
   # Convert everything to data.frame to avoid problems with tbl_df
   x <- data.frame(x)$x
   if(!is.null(y)){
     y <- data.frame(y)$y
   }
-  
+
   # Get the type
   if(!is.null(type)){
     # Type manually supplied
@@ -52,23 +50,23 @@ cism_plot <- function(x,
       type <- 'numeric'
     }
   }
-  
+
   # Simplify if relevant
   if(type == 'factor' & make_simple == TRUE){
     x <- simplify(x,
                   n = n_simple)
   }
-  
+
   # Make into a dataframe for plotting
   plot_df <- data.frame(x = x)
-  
+
   # Make plot
   if(!is.null(y)){
     if(type != 'numeric'){
       stop('Only numeric variables can be plotted in a x-y chart')
     }
     plot_df$y <- y
-    
+
     g <- ggplot(data = plot_df,
                 aes(x = x,
                     y = y)) +
@@ -77,16 +75,16 @@ cism_plot <- function(x,
       theme_cism() +
       xlab('') +
       ylab('')
-    
+
     # Add trend
     if(trend){
       g <- g +
         geom_smooth(color = 'darkgreen',
                     fill = 'yellow')
     }
-    
+
   } else if(type == 'factor'){
-    plot_data <- 
+    plot_data <-
       plot_df %>%
       group_by(x) %>%
       tally %>%
@@ -94,7 +92,7 @@ cism_plot <- function(x,
       filter(!is.na(x)) #%>%
       # arrange(n) %>%
       # mutate(x = factor(x, levels = x))
-    g <- 
+    g <-
       ggplot(data = plot_data,
              aes(x = x,
                  y = n)) +
@@ -111,7 +109,7 @@ cism_plot <- function(x,
         theme(axis.text.x = element_text(angle = 90))
     }
   } else if (type == 'numeric'){
-    g <- 
+    g <-
       ggplot(data = plot_df,
            aes(x = x)) +
       geom_density(fill = 'darkorange',
@@ -121,7 +119,7 @@ cism_plot <- function(x,
       ylab('Density') +
       theme_cism()
   }
-  
+
   g <- g +
     brand_cism()
   return(g)

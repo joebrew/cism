@@ -13,10 +13,10 @@ cism_map_interactive(lng, lat, x = NULL, popup = NULL, spdf = NULL,
 
 \item{lat}{A numeric vector of latitude coordinates}
 
-\item{x}{A variable to be plotted. If \code{NULL} (the default), the locations only 
+\item{x}{A variable to be plotted. If \code{NULL} (the default), the locations only
 will be plotted}
 
-\item{popup}{A character vector, of identical lenggth to \code{lat} and \code{lng}, 
+\item{popup}{A character vector, of identical lenggth to \code{lat} and \code{lng},
 containing information to be viewed upon clicking}
 
 \item{spdf}{A spatial polygons dataframe}

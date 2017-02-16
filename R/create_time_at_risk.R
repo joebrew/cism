@@ -1,12 +1,13 @@
 #' Create time at risk
-#' 
-#' Using census migration data, create a dataframe of "time at risk", ie the 
+#'
+#' Using census migration data, create a dataframe of "time at risk", ie the
 #' time during which someone lived in Manhiça.
 #' @param residency A residency table of identical format to the \code{residency} table in the \code{openhds} database
 #' @param individual A individual table of identical format to the \code{individual} table in the \code{openhds} database
 #' @param location A location table of identical format to the \code{location} table in the \code{openhds} database
-#' @return A \code{data.frame} with one row for each person's 
+#' @return A \code{data.frame} with one row for each person's
 #' uninterrupted period of residency
+#' @import dplyr
 #' @export
 #' @examples
 #' residency <- get_data(tab = 'residency', dbname = 'openhds')
@@ -17,18 +18,15 @@
 create_time_at_risk <- function(residency,
                                 individual,
                                 location){
-  
-  # Packages
-  require(dplyr)
-  
+
   # Perform selections and join
   # get variables from the episodes of residence
   result <- residency %>%
-    dplyr::select(individual_uuid, 
+    dplyr::select(individual_uuid,
                   startType,
                   startDate,
-                  endType, 
-                  endDate, 
+                  endType,
+                  endDate,
                   location_uuid) %>%
     # order by individual and date
     arrange(individual_uuid, startDate) %>%
@@ -59,12 +57,12 @@ create_time_at_risk <- function(residency,
                 # rename extId so as to not conflict with individual extId
                 rename(location_extId = extId),
               by = c('location_uuid' = 'uuid'))
-  
+
   # Make date objects
   result$startDate <- as.Date(result$startDate)
   result$endDate <- as.Date(result$endDate)
   result$dob <- as.Date(result$dob)
-  
+
   # Return result
   return(result)
 }

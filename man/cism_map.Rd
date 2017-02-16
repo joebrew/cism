@@ -12,7 +12,7 @@ cism_map(lng, lat, x = NULL, fspdf = NULL, type = NULL,
 
 \item{lat}{A numeric vector of latitude coordinates}
 
-\item{x}{A variable to be plotted. If \code{NULL} (the default), the locations only 
+\item{x}{A variable to be plotted. If \code{NULL} (the default), the locations only
 will be plotted}
 
 \item{fspdf}{A fortified spatial polygons dataframe}

@@ -21,11 +21,13 @@
 #' @param password The password If \code{NULL}
 #' the function will try to use the \code{pqssword} in your \code{connection_object}; if the \code{connection_object} is \code{NULL}, the function will
 #' try to create a \code{connection_object} as described below.
-#' @param connection_object An open connection to a CISM database (as created through \code{credentials_extract} and \code{credentials_connect} or \code{credentials_now}); if \code{NULL}, the function will try to create a \code{connection_object} by retrieving user information from the \code{credentials/credentials.yaml} 
+#' @param connection_object An open connection to a CISM database (as created through \code{credentials_extract} and \code{credentials_connect} or \code{credentials_now}); if \code{NULL}, the function will try to create a \code{connection_object} by retrieving user information from the \code{credentials/credentials.yaml}
 #' in or somewhere upwards of the working directory.
 #' @param collect Whether to collect into memory (using dplyr's \code{connect}
 #' function) the result or not
 #' @return A dataframe matching the results of either the \code{query} or \code{tab} arguments
+#' @import DBI
+#' @import dplyr
 #' @export
 
 get_data <- function(query = NULL,
@@ -37,17 +39,14 @@ get_data <- function(query = NULL,
                      password = NULL,
                      connection_object = NULL,
                      collect = TRUE){
-  
-  require(dplyr)
-  require(DBI)
-  
+
   # If not connection object, try to find one
   if(is.null(connection_object)){
     message(paste0('No connection_object provided. Will try ',
                    'to find a credentials file.'))
     # Get credentials
     the_credentials <- credentials_extract()
-    
+
     # Replace dbname if necessary
     if(!is.null(dbname)){
       the_credentials$dbname <- dbname
@@ -68,14 +67,14 @@ get_data <- function(query = NULL,
     if(!is.null(password)){
       the_credentials$password <- password
     }
-    
+
     # Establish the connection
     connection_object <- credentials_connect(the_credentials)
-    
+
 
   }
-  
-  
+
+
   # Conformity of input
   if((!is.null(tab) & !is.null(query)) |
      is.null(tab) & is.null(query)){
@@ -84,21 +83,21 @@ get_data <- function(query = NULL,
   if(is.null(connection_object)){
     stop('You must supply a connection object (use credentials_extract and credentials_connect, or simply credentials_now).')
   }
-  
+
   # QUERY / CONNECT
   if(!is.null(tab)){
-    return_object <- tbl(connection_object, 
+    return_object <- tbl(connection_object,
                          tab)
   } else {
-    return_object <- tbl(src = connection_object, 
+    return_object <- tbl(src = connection_object,
                          from = sql(query))
   }
-  
+
   if(collect){
     # Collect
     return_object <- collect(return_object,
                              n = Inf)
   }
-  
+
   return(return_object)
 }

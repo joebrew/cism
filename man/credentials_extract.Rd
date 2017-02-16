@@ -10,11 +10,11 @@ credentials_extract(credentials_path = NULL, credentials_folder = TRUE,
 }
 \arguments{
 \item{credentials_path}{The path to a credentials file through which
-the database connection will be established. 
-If \code{NULL} the function will attempt to find an \code{credentials.yaml} 
+the database connection will be established.
+If \code{NULL} the function will attempt to find an \code{credentials.yaml}
 upwards in the directory tree}
 
-\item{credentials_folder}{Whether to search for a \code{credentials} folder (the 
+\item{credentials_folder}{Whether to search for a \code{credentials} folder (the
 default behvior); only applicable if \code{credentials_path} is \code{NULL}.}
 
 \item{credentials_file}{The name of the file (not including the path, unless
@@ -27,8 +27,8 @@ your environment setting. Normally, this should be \code{credentials.yaml}. If a
 \item{credentials_search_limit}{The number of directories upwards to search for a \code{credentials/credentials.yaml} file; only relevant if \code{credentials_path = NULL}
 default is \code{FALSE}}
 
-\item{all_in_file}{Whether to disregard the \code{credentials_path} argument entirely. 
-If set to \code{TRUE}, the \code{credentials_file} argument should be the 
+\item{all_in_file}{Whether to disregard the \code{credentials_path} argument entirely.
+If set to \code{TRUE}, the \code{credentials_file} argument should be the
 entire pathway to the credentials file in question (ie, path and file name)
 combined.
 If set to \code{TRUE}, the function will use the}

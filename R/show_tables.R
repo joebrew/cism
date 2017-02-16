@@ -19,10 +19,12 @@
 #' @param password The password If \code{NULL}
 #' the function will try to use the \code{pqssword} in your \code{connection_object}; if the \code{connection_object} is \code{NULL}, the function will
 #' try to create a \code{connection_object} as described below.
-#' @param connection_object An open connection to a CISM database (as created through \code{credentials_extract} and \code{credentials_connect} or \code{credentials_now}); if \code{NULL}, the function will try to create a \code{connection_object} by retrieving user information from the \code{credentials/credentials.yaml} 
+#' @param connection_object An open connection to a CISM database (as created through \code{credentials_extract} and \code{credentials_connect} or \code{credentials_now}); if \code{NULL}, the function will try to create a \code{connection_object} by retrieving user information from the \code{credentials/credentials.yaml}
 #' in or somewhere upwards of the working directory.
-#' @return A dataframe with two columns: \code{dbname} (the database in question) 
+#' @return A dataframe with two columns: \code{dbname} (the database in question)
 #' and \code{table} (the name of the table).
+#' @import DBI
+#' @import dplyr
 #' @export
 
 show_tables <- function(dbname = NULL,
@@ -32,17 +34,14 @@ show_tables <- function(dbname = NULL,
                         password = NULL,
                         connection_object = NULL,
                         collect = TRUE){
-  
-  require(dplyr)
-  require(DBI)
-  
+
   # If not connection object, try to find one
   if(is.null(connection_object)){
     message(paste0('No connection_object provided. Will try ',
                    'to find a credentials file.'))
     # Get credentials
     the_credentials <- credentials_extract()
-    
+
     # Replace dbname if necessary
     if(!is.null(dbname)){
       the_credentials$dbname <- dbname
@@ -63,23 +62,23 @@ show_tables <- function(dbname = NULL,
     if(!is.null(password)){
       the_credentials$password <- password
     }
-    
+
     # Establish the connection
     connection_object <- credentials_connect(the_credentials)
   }
-  
-  
+
+
   # Conformity of input
   if(is.null(connection_object)){
     stop('You must supply a connection object (use credentials_extract and credentials_connect, or simply credentials_now).')
   }
-  
+
   # QUERY / CONNECT
   tables <- src_tbls(connection_object)
-  
+
   # Make a dataframe of results
   results <- data.frame(dbname = dbname,
                         table = tables)
-  
+
   return(results)
 }
