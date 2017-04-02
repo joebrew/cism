@@ -79,7 +79,7 @@ get_weather <- function(station = "FQMA", # CDG, BGT, ATL, JFK
                        "&req_city=NA&req_state=NA&req_statename=NA&format=1")
 
         #     # Read in data from link
-        df <- suppressWarnings(fread(link))
+        df <- suppressWarnings(data.table::fread(link))
         names_df <- names(df)
         df <- data.frame(df)
         names(df) <- names_df
