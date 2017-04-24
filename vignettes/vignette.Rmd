@@ -310,7 +310,30 @@ There are `r length(unique(wb$indicator_code))` development indicators in the da
 DT::datatable(data_frame(`Indicator name` = sort(unique(wb$indicator_name))))
 ```
 
+The `cism` package also includes the location (as well as some supplementary data) of all government health facilities ("unidades sanitarias") in Mozambique. This dataset, named `us`, can be called by running the following:
 
+```{r, echo = TRUE}
+us <- cism::us
+```
+
+The data is in the following format:
+
+```{r, echo = FALSE, eval = TRUE}
+knitr::kable(head(data.frame(us)))
+```
+
+The locations can be visualized as such:
+
+```{r, eval = TRUE, echo = TRUE, message=FALSE}
+library(ggplot2)
+library(cism)
+cism::cism_map(lng = us$longitude,
+               lat = us$latitude,
+               fspdf = cism::moz1,
+               opacity = 0.8,
+               point_size = 0.5) +
+  labs(title = 'Health facilities')
+```
 
 ### Aesthetic tweaks
 
