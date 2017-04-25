@@ -43,4 +43,3 @@ This function is identical in input to \code{cism_map}, in all ways but three:
 2. It takes a spdf (regular SpatialPolygonsDataFrame) rather than a fspdf (fortified one).
 3. It takes an optional popup argument.
 }
-

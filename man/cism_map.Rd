@@ -35,4 +35,3 @@ Generate simple maps of variables. Meant to show one of 3 different kinds of map
 2. A point map with coloring by a categorical variable
 3. A point map with coloring by a numeric variable
 }
-

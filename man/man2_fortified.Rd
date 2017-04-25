@@ -12,4 +12,3 @@ man2_fortified
 A "fortified" version of \code{man2}
 }
 \keyword{datasets}
-

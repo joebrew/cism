@@ -12,4 +12,3 @@ mop3_fortified
 A "fortified" version of \code{mop3}
 }
 \keyword{datasets}
-

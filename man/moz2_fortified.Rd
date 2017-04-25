@@ -12,4 +12,3 @@ moz2_fortified
 A "fortified" version of \code{moz2}
 }
 \keyword{datasets}
-

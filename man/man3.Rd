@@ -12,4 +12,3 @@ man3
 Map of the Manhiça district at administrative level 3.
 }
 \keyword{datasets}
-

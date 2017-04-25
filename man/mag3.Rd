@@ -12,4 +12,3 @@ mag3
 Map of the Magude district at administrative level 3.
 }
 \keyword{datasets}
-

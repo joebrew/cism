@@ -12,4 +12,3 @@ mag2_fortified
 A "fortified" version of \code{mag2}
 }
 \keyword{datasets}
-

@@ -29,4 +29,3 @@ moz2
 Map of Mozambique at administrative level 2.
 }
 \keyword{datasets}
-

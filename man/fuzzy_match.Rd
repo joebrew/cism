@@ -19,4 +19,3 @@ A named matrix of similarity scores
 Use approximate string matching to assign "similarity" scores to
 potentially mis-entered data
 }
-

@@ -82,4 +82,3 @@ moz0
 Map of Mozambique at administrative level 0.
 }
 \keyword{datasets}
-

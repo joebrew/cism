@@ -9,4 +9,3 @@ install_useful_packages()
 \description{
 Install some subjectively useful packages
 }
-

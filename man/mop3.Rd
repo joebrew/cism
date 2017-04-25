@@ -12,4 +12,3 @@ mop3
 Map of the Mopeia district at administrative level 3.
 }
 \keyword{datasets}
-

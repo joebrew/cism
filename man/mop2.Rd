@@ -12,4 +12,3 @@ mop2
 Map of the Mopeia district at administrative level 2.
 }
 \keyword{datasets}
-
