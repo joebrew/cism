@@ -2,9 +2,12 @@ library(devtools)
 library(raster)
 library(ggplot2)
 library(maptools)
+library(rgdal)
 
 devtools::use_data_raw()
 
+# Get Africa shapefile
+africa <- readOGR('africa_shp/', 'AfricanCountires')
 
 # Get mozambique shapefile
 moz0 <- getData('GADM', country = 'MOZ', level = 0, download = FALSE)
