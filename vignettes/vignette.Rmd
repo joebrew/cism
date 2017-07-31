@@ -274,6 +274,34 @@ ggplot() +
   coord_map()
 ```
 
+#### Manipulating spatial data
+
+The `cism` package has a function, `ll_from_utm`, for the conversion of UTM (Universal Transverse Mercator) coordinates to longitude and latitude. Its use is as follows:
+
+```{r}
+# Create a dataset of some UTM coordinates
+fake_data <- data_frame(id = 1:5,
+                        x = c(480132,
+                              481126,
+                              481316,
+                              478351,
+                              478172),
+                        y = c(7192161,
+                              7192833,
+                              7190708,
+                              7189107,
+                              7189615))
+# Convert to latitude and longitude
+converted <- ll_from_utm(x = fake_data[,c('x', 'y')],
+                         zone = 36)
+# See converted data
+head(converted)
+# Plot converted data
+cism_map_interactive(lng = converted$x,
+                     lat = converted$y,
+                     point_size = 10)
+```
+
 #### Dataframes
 
 The `cism` package also includes non-spatial data. The World Bank's "World Development Indicators" time series data is included for Mozambique in a (plot-friendly) long format. Here's an example of how to use.
