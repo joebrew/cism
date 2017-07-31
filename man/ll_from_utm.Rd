@@ -19,4 +19,5 @@ A dataframe of latitude and longitude coordinates
 }
 \description{
 Convert from UTM (Universal Transverse Mercator) to Latitude and Longitude
+# If unsure about the zone of your data, look here: https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system#Overlapping_grids
 }

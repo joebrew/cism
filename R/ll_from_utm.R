@@ -1,6 +1,7 @@
 #' Convert UTM to Latitude Longitude
 #' 
 #' Convert from UTM (Universal Transverse Mercator) to Latitude and Longitude
+#' # If unsure about the zone of your data, look here: https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system#Overlapping_grids
 #' @param x A numeric vector of x coordinates, or a dataframe with two columns, named
 #' x and y
 #' @param y A numeric vector of y coordinates (optional; only necessary if x is a vector and not a dataframe)
