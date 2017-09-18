@@ -27,3 +27,4 @@ individual <- get_data(tab = 'individual', dbname = 'openhds')
 location <- get_data(tab = 'location', dbname = 'openhds')
 time_at_risk <- create_time_at_risk(residency = residency, individual = individual, location = location)
 }
+

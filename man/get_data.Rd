@@ -48,3 +48,4 @@ A dataframe matching the results of either the \code{query} or \code{tab} argume
 \description{
 Fetch a table or a specific query of a table from a CISM database.
 }
+

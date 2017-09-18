@@ -25,3 +25,4 @@ INDIVIDUAL_DETAILS_CORE
 2. Magude (round 1) with the following tables
 3. Magude (round 2) with the following tables
 }
+

@@ -33,3 +33,4 @@ Generate simple visualizations of variables. Meant to show one of 3 different ki
 2. A histogram (for distributions of numeric variables)
 3. A x-y correlation chart (if two variables are supplied)
 }
+

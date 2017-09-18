@@ -41,3 +41,4 @@ and \code{table} (the name of the table).
 \description{
 Show the names of tables of a database
 }
+

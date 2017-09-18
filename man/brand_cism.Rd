@@ -9,3 +9,4 @@ brand_cism(subtitle = TRUE)
 \description{
 Add a CISM watermark to any plot
 }
+

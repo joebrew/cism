@@ -33,12 +33,13 @@ ggplot(crimes, aes(map_id = state)) +
     scale_fill_gradient(low="grey10", high="white")
 }
 }
+\author{
+Jon Lefcheck (\url{http://jonlefcheck.net})
+}
 \references{
 \url{http://jonlefcheck.net/2013/03/11/black-theme-for-ggplot2-2}
 }
 \seealso{
 \code{\link[ggplot2]{theme}}
 }
-\author{
-Jon Lefcheck (\url{http://jonlefcheck.net})
-}
+

@@ -27,3 +27,4 @@ moz1
 Map of Mozambique at administrative level 1.
 }
 \keyword{datasets}
+

@@ -13,3 +13,4 @@ A ggtheme object meant to be used in conjunction with a call to ggplot()
 Apply the CISM look to a ggplot2-generated visualization. Specific for
 maps (no x labels, etc.)
 }
+

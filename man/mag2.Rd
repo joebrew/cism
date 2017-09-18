@@ -12,3 +12,4 @@ mag2
 Map of the Magude district at administrative level 2.
 }
 \keyword{datasets}
+

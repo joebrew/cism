@@ -455,3 +455,26 @@ ggplot(data = plot_data,
   theme(axis.text.x = element_text(angle = 90))
 ```
 
+### Bibliography management
+
+The `doi_to_bib` function generates a `bibtex` format bibliography entry (ready for use by bibliographic management software or for use in `.bib` file when used with Rmarkdown). The process is simple.
+
+1. Find an article you wish to cite such as [this one](https://www.ncbi.nlm.nih.gov/pubmed/28819225).
+
+2. Copy the `doi` from the article (usually at the top). In this case, it is `10.1038/s41598-017-08906-x`.
+
+![](doi.png)
+
+3. Run the following code.
+
+```{r, eval = FALSE, echo = TRUE}
+doi_to_bib('10.1038/s41598-017-08906-x')
+```
+
+And you'll get the following output, ready to copy-paste into your bibliography management software or directly into your `.bib` file if using Rmarkdown.
+
+```{r, eval = TRUE, echo = FALSE}
+doi_to_bib('10.1038/s41598-017-08906-x')
+```
+
+

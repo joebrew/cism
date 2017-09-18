@@ -11,3 +11,4 @@ Get a dictionary for the following maltem tables:
 HOUSEHOLD
 MEMBER
 }
+

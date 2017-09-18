@@ -21,3 +21,4 @@ A factor vector of identical length as var
 \description{
 Simplify the levels of an over-leveled factor by combining small levels.
 }
+

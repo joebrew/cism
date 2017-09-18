@@ -13,3 +13,4 @@ credentials_connect(options_list)
 Use a list of options (usually created through running \code{credentials_extract})
 to create a connection to a CISM database.
 }
+
