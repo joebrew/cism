@@ -8,10 +8,7 @@
 
 doi_to_bib <- function(x = '10.1371/journal.pone.0008500',
                        cat_it = TRUE){
-  x <- gsub("http://dx.doi.org/", "", x, fixed = TRUE)
-  x <- gsub("https://dx.doi.org/", "", x, fixed = TRUE)
-  x <- gsub("www.dx.doi.org/", "", x, fixed = TRUE)
-  x <- gsub("dx.doi.org/", "", x, fixed = TRUE)
+  x <- gsub("https:?//(www\\.)?(dx\\.)?doi.org/", "", x,)
   out <- paste0('curl -LH "Accept: text/bibliography; style=bibtex" https://doi.org/',
                 x)
   out <- system(out, intern = TRUE)
