@@ -553,7 +553,7 @@ And you'll get the following output, ready to copy-paste into your bibliography 
     #> title={Cytochrome P450/ABC transporter inhibition simultaneously enhances ivermectin pharmacokinetics in the mammal host and pharmacodynamics in Anopheles gambiae         },
     #>  volume={7},
     #>  ISSN={2045-2322},
-    #>  url={http://dx.doi.org/10.1038/s41598-017-08906-x},
+    #>  url={https://doi.org/10.1038/s41598-017-08906-x},
     #>  DOI={10.1038/s41598-017-08906-x},
     #>  number={1},
     #>  journal={Scientific Reports},
